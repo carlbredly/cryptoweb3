@@ -15,7 +15,7 @@ const TabsNav = () => {
   ]
 
   return (
-      <div className='flex justify-around items-center py-2 sm:py-3 px-2 sm:px-4 w-full'>
+      <div className='flex justify-around items-center pt-2 sm:pt-3 pb-0 px-2 sm:px-4 w-full'>
         {tabs.map((tab) => {
           const Icon = tab.icon
           const isActive = activeTab === tab.id

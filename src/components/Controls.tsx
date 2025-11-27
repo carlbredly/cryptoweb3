@@ -3,7 +3,7 @@ import Tabs from './Tabs'
 
 const Controls = () => {
   return (
-    <div className='flex flex-col w-full px-4 sm:px-6 pt-4 pb-2'>
+    <div className='flex flex-col w-full px-4 sm:px-6 pt-4 pb-0'>
         <div className='flex justify-between items-start mb-4 gap-2'>
             <p className='text-[#FFFFFF80] text-xs sm:text-sm'>Position details</p>
             <div className='flex gap-1 sm:gap-2 items-center'>
