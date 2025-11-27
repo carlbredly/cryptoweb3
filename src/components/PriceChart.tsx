@@ -142,7 +142,7 @@ const PriceChart = () => {
   const [currentPrice, setCurrentPrice] = useState<number>(initialData[initialData.length - 1].price);
   const [previousPrice, setPreviousPrice] = useState<number>(initialData[initialData.length - 2]?.price || initialData[0].price);
   const [animatedPrice, setAnimatedPrice] = useState<number>(initialData[initialData.length - 1].price);
-  const [chartHeight, setChartHeight] = useState<number>(340);
+  const [chartHeight, setChartHeight] = useState<number>(400);
 
   // Gérer la hauteur responsive du graphique
   useEffect(() => {
