@@ -141,7 +141,6 @@ const PriceChart = () => {
   });
   const [currentPrice, setCurrentPrice] = useState<number>(initialData[initialData.length - 1].price);
   const [previousPrice, setPreviousPrice] = useState<number>(initialData[initialData.length - 2]?.price || initialData[0].price);
-  const [timeCounter, setTimeCounter] = useState<number>(initialData.length - 1);
   const [animatedPrice, setAnimatedPrice] = useState<number>(initialData[initialData.length - 1].price);
   const [chartHeight, setChartHeight] = useState<number>(340);
 
@@ -166,7 +165,6 @@ const PriceChart = () => {
     setCurrentPrice(lastPrice);
     setPreviousPrice(secondLastPrice);
     setAnimatedPrice(lastPrice);
-    setTimeCounter(newData.length - 1);
   }, [activeInterval]);
 
   // Animation fluide de la ligne de suivi
@@ -207,27 +205,22 @@ const PriceChart = () => {
   // Mise à jour dynamique du graphique (plus statique)
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeCounter((prevTime) => {
-        const newTime = prevTime + 1;
+      // Générer un nouveau prix basé sur le prix actuel avec une variation plus faible (plus statique)
+      setCurrentPrice((prevPrice) => {
+        const variation = (Math.random() - 0.5) * 5; // Variation réduite de -2.5 à +2.5
+        const newPrice = Math.max(15000, Math.min(15100, prevPrice + variation));
         
-        // Générer un nouveau prix basé sur le prix actuel avec une variation plus faible (plus statique)
-        setCurrentPrice((prevPrice) => {
-          const variation = (Math.random() - 0.5) * 5; // Variation réduite de -2.5 à +2.5
-          const newPrice = Math.max(15000, Math.min(15100, prevPrice + variation));
-          
-          setPreviousPrice(prevPrice);
-          
-          // Ajouter le nouveau point au graphique
-          setChartData((prevData) => {
-            const newData = [...prevData, { time: newTime, price: newPrice }];
-            // Garder seulement les 15 derniers points pour un affichage plus statique
-            return newData.slice(-15);
-          });
-          
-          return newPrice;
+        setPreviousPrice(prevPrice);
+        
+        // Ajouter le nouveau point au graphique
+        setChartData((prevData) => {
+          const newTime = prevData.length;
+          const newData = [...prevData, { time: newTime, price: newPrice }];
+          // Garder seulement les 15 derniers points pour un affichage plus statique
+          return newData.slice(-15);
         });
         
-        return newTime;
+        return newPrice;
       });
     }, 15000); // Mise à jour toutes les 15 secondes (plus statique)
 

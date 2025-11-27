@@ -1,4 +1,3 @@
-import React from 'react'
 import crypto from '../assets/Bitcoin.png'
 import { ChevronDown } from 'lucide-react';
 

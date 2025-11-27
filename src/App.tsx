@@ -1,7 +1,6 @@
 import './App.css'
 import Connect from './components/Connect'
 import PriceChart from './components/PriceChart'
-import Nav from './components/Nav'
 import Header from './components/Header'
 
 
