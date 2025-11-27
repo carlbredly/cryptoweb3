@@ -142,12 +142,22 @@ const PriceChart = () => {
   const [currentPrice, setCurrentPrice] = useState<number>(initialData[initialData.length - 1].price);
   const [previousPrice, setPreviousPrice] = useState<number>(initialData[initialData.length - 2]?.price || initialData[0].price);
   const [animatedPrice, setAnimatedPrice] = useState<number>(initialData[initialData.length - 1].price);
-  const [chartHeight, setChartHeight] = useState<number>(500);
+  const [chartHeight, setChartHeight] = useState<number>(300);
 
-  // Gérer la hauteur responsive du graphique
+  // Gérer la hauteur responsive du graphique pour s'adapter à l'espace disponible
   useEffect(() => {
     const updateHeight = () => {
-      const height = Math.min(350, Math.max(250, window.innerHeight * 0.35));
+      // Calculer la hauteur disponible en soustrayant les hauteurs des autres composants
+      const headerHeight = 60; // Hauteur approximative du Header
+      const connectHeight = 60; // Hauteur approximative du Connect
+      const priceHeaderHeight = 80; // Hauteur du header du graphique (prix + boutons)
+      const buttonsHeight = 60; // Hauteur des boutons d'intervalle
+      const dotsHeight = 30; // Hauteur des points de pagination
+      const navHeight = 150; // Hauteur approximative de Nav (Controls + TabsNav)
+      const padding = 40; // Padding et gaps totaux
+      
+      const availableHeight = window.innerHeight - headerHeight - connectHeight - priceHeaderHeight - buttonsHeight - dotsHeight - navHeight - padding;
+      const height = Math.max(200, Math.min(availableHeight, window.innerHeight * 0.5));
       setChartHeight(height);
     };
 
@@ -235,9 +245,9 @@ const PriceChart = () => {
   const formattedInteger = parseInt(integerPart).toLocaleString("en-US");
 
   return (
-    <div className="flex flex-col  w-full max-w-full">
+    <div className="flex flex-col w-full max-w-full flex-1 overflow-hidden min-h-0">
       {/* HEADER */}
-      <div className="flex justify-between w-full">
+      <div className="flex justify-between w-full flex-shrink-0 px-4 py-2">
         <div className="flex items-center gap-2">
           <h1>
             {formattedInteger}
@@ -263,8 +273,9 @@ const PriceChart = () => {
       </div>
 
       {/* CHART */}
-      <div className="w-full min-w-full">
-        <ResponsiveContainer width="100%" height={chartHeight}>
+      <div className="w-full flex-1 min-h-0 flex flex-col">
+        <div className="flex-1 min-h-0">
+          <ResponsiveContainer width="100%" height={chartHeight}>
           <AreaChart
             data={chartData}
             margin={{
@@ -354,7 +365,8 @@ const PriceChart = () => {
             </ReferenceLine>
           </AreaChart>
         </ResponsiveContainer>
-        <div className="flex justify-between gap-2 mx-4 sm:mx-6 mt-4 mb-4">
+        </div>
+        <div className="flex justify-between gap-2 mx-4 sm:mx-6 mt-4 mb-4 flex-shrink-0">
           <button
             onClick={() => setActiveInterval('15m')}
             className={`px-6 sm:px-6 md:px-9 py-2 rounded-xl transition-all text-xs sm:text-sm ${
@@ -398,7 +410,7 @@ const PriceChart = () => {
         </div>
 
         
-        <div className="flex justify-center gap-2 my-4"> 
+        <div className="flex justify-center gap-2 my-4 flex-shrink-0"> 
           <div className="w-2 h-2 rounded-full bg-[#FFFFFF4D]"></div>
           <div className="w-6 h-2 rounded-full bg-[#ECBD75]"></div>
           <div className="w-2 h-2 rounded-full bg-[#FFFFFF4D]"></div>

@@ -3,7 +3,7 @@ import { IoClose } from 'react-icons/io5'
 
 const Header = () => {
   return (
-    <div className='flex items-center justify-between w-full bg-[#222222] px-4 py-3'>
+    <div className='flex items-center justify-between w-full bg-[#222222] px-4 py-3 flex-shrink-0'>
       <div className='flex items-center gap-2'>
         {/* Trois cercles vides */}
         <div className='flex items-center gap-1'>

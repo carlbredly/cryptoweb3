@@ -6,7 +6,7 @@ const Connect = () => {
   const mockAddress = "0xAbC...1234" // Adresse tronquée pour la simulation
 
   return (
-    <div className='flex justify-between px-4 w-full items-center gap-2 sm:gap-4 mx-4'>
+    <div className='flex justify-between px-4 w-full items-center gap-2 sm:gap-4 flex-shrink-0 py-2'>
         <Crypto />
         {isConnected ? (
           <button 
