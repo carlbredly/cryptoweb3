@@ -245,7 +245,7 @@ const PriceChart = () => {
   const formattedInteger = parseInt(integerPart).toLocaleString("en-US");
 
   return (
-    <div className="flex flex-col w-full max-w-full flex-1 overflow-hidden min-h-0">
+    <div className="flex flex-col w-full max-w-full flex-1 overflow-hidden min-h-0 mb-0 pb-0">
       {/* HEADER */}
       <div className="flex justify-between w-full flex-shrink-0 px-4 py-2">
         <div className="flex items-center gap-2">
@@ -410,7 +410,7 @@ const PriceChart = () => {
         </div>
 
         
-        <div className="flex justify-center gap-2 mt-4 mb-0"> 
+        <div className="flex justify-center gap-2 mt-4 mb-0 px-4"> 
           <div className="w-2 h-2 rounded-full bg-[#FFFFFF4D]"></div>
           <div className="w-6 h-2 rounded-full bg-[#ECBD75]"></div>
           <div className="w-2 h-2 rounded-full bg-[#FFFFFF4D]"></div>
