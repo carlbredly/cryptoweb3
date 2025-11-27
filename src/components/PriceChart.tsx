@@ -410,7 +410,7 @@ const PriceChart = () => {
         </div>
 
         
-        <div className="flex justify-center gap-2 mt-4 mb-6 px-4"> 
+        <div className="flex justify-center gap-2 mt-4 mb-8 px-4"> 
           <div className="w-2 h-2 rounded-full bg-[#FFFFFF4D]"></div>
           <div className="w-6 h-2 rounded-full bg-[#ECBD75]"></div>
           <div className="w-2 h-2 rounded-full bg-[#FFFFFF4D]"></div>
