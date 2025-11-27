@@ -154,7 +154,7 @@ const PriceChart = () => {
       const buttonsHeight = 60; // Hauteur des boutons d'intervalle
       const dotsHeight = 30; // Hauteur des points de pagination
       const navHeight = 150; // Hauteur approximative de Nav (Controls + TabsNav)
-      const padding = 40; // Padding et gaps totaux
+      const padding = 4; // Padding et gaps totaux
       
       const availableHeight = window.innerHeight - headerHeight - connectHeight - priceHeaderHeight - buttonsHeight - dotsHeight - navHeight - padding;
       const height = Math.max(200, Math.min(availableHeight, window.innerHeight * 0.5));
