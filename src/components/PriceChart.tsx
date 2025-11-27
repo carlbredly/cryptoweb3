@@ -273,7 +273,7 @@ const PriceChart = () => {
       </div>
 
       {/* CHART */}
-      <div className="w-full flex-1 min-h-0 flex flex-col">
+      <div className="w-full min-h-0 flex flex-col">
         <div className="flex-1 min-h-0">
           <ResponsiveContainer width="100%" height={chartHeight}>
           <AreaChart
