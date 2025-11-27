@@ -142,7 +142,7 @@ const PriceChart = () => {
   const [currentPrice, setCurrentPrice] = useState<number>(initialData[initialData.length - 1].price);
   const [previousPrice, setPreviousPrice] = useState<number>(initialData[initialData.length - 2]?.price || initialData[0].price);
   const [animatedPrice, setAnimatedPrice] = useState<number>(initialData[initialData.length - 1].price);
-  const [chartHeight, setChartHeight] = useState<number>(300);
+  const [chartHeight, setChartHeight] = useState<number>(400);
 
   // Gérer la hauteur responsive du graphique pour s'adapter à l'espace disponible
   useEffect(() => {
@@ -366,7 +366,7 @@ const PriceChart = () => {
           </AreaChart>
         </ResponsiveContainer>
         </div>
-        <div className="flex justify-between gap-2 mx-4 sm:mx-6 mt-4 mb-4 flex-shrink-0">
+        <div className="flex justify-between gap-2 mx-4 sm:mx-6 mt-4 mb-4 ">
           <button
             onClick={() => setActiveInterval('15m')}
             className={`px-6 sm:px-6 md:px-9 py-2 rounded-xl transition-all text-xs sm:text-sm ${
