@@ -274,7 +274,7 @@ const PriceChart = () => {
 
       {/* CHART */}
       <div className="w-full min-h-0 flex flex-col">
-        <div className="flex-1 min-h-0">
+        <div className="flex-1 min-h-0 mb-4">
           <ResponsiveContainer width="100%" height={chartHeight}>
           <AreaChart
             data={chartData}
@@ -366,7 +366,7 @@ const PriceChart = () => {
           </AreaChart>
         </ResponsiveContainer>
         </div>
-        <div className="flex justify-between gap-2 mx-4 sm:mx-6 mt-4 mb-4 ">
+        <div className="flex justify-between gap-2 mx-4 sm:mx-6 mt-4 my-4  ">
           <button
             onClick={() => setActiveInterval('15m')}
             className={`px-6 sm:px-6 md:px-9 py-2 rounded-xl transition-all text-xs sm:text-sm ${
